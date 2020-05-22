@@ -13,24 +13,7 @@ predict whether a cancer is malignant or benign from biopsy details. The source 
 # Import the libraries
 library(mlbench)  # For the dataset
 library(mice)  # For handling missing values
-```
-
-    ## 
-    ## Attaching package: 'mice'
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     cbind, rbind
-
-``` r
 library(caret)  # For training the model
-```
-
-    ## Loading required package: lattice
-
-    ## Loading required package: ggplot2
-
-``` r
 library(e1071)  # For implementing the Naive Bayes algorithm
 ```
 
