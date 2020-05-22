@@ -6,7 +6,7 @@ library(RCurl)
 library(randomForest)
 
 # Read data
-weather <- read.csv(text = getURL("https://raw.githubusercontent.com/richardcsuwandi/r-projects/master/Random%20Forest%20on%20Weather%20Dataset/weather-weka.csv") )
+weather <- read.csv(text = getURL("https://raw.githubusercontent.com/richardcsuwandi/r-projects/master/Golf%20Weather%20Forecast%20Shiny%20App/weather-weka.csv") )
 
 # Build model
 model <- randomForest(play ~ ., data = weather, ntree = 500, mtry = 4, importance = TRUE)
