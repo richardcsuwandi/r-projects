@@ -1,8 +1,7 @@
 Naive Bayes Classifier on Wisconsin Breast Cancer Dataset
 ================
 
-This project is one of my R projects series. In this project, we have a
-breast cancer dataset reported by Dr. Wolberg that consists of 699
+This project is one of my R projects series. In this project, we have a Wisconsin breast cancer dataset reported by Dr. Wolberg that consists of 699
 observations with 11 variables. A more detailed description of the
 dataset can be found
 [here](https://www.rdocumentation.org/packages/mlbench/versions/2.1-1/topics/BreastCancer)
