@@ -7,7 +7,7 @@ dataset can be found
 [here](https://www.rdocumentation.org/packages/mlbench/versions/2.1-1/topics/BreastCancer)
 
 The goal of this project is to create Naive Bayes Classifier model to
-predict whether a cancer is malignant or benign from biopsy details. The source code of this project can also be found [here](https://github.com/richardcsuwandi/r-projects/blob/master/breast_cancer.R) 
+predict whether a cancer is malignant or benign from biopsy details. The source code of this project can also be found [here](https://github.com/richardcsuwandi/r-projects/blob/master/Naive%20Bayes%20Classifier%20on%20Wisconsin%20Breast%20Cancer%20Dataset/breast_cancer.R) 
 
 ``` r
 # Import the libraries
