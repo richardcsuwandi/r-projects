@@ -12,7 +12,7 @@ weather <- read.csv(text = getURL("https://raw.githubusercontent.com/richardcsuw
 model <- randomForest(play ~ ., data = weather, ntree = 500, mtry = 4, importance = TRUE)
 
 # User Interface (UI)               
-ui <- fluidPage(theme = shinytheme("sandstone"),
+ui <- fluidPage(theme = shinytheme("simplex"),
   
   # Page header
   headerPanel('Play Golf?'),
