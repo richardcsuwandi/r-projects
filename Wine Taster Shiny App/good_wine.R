@@ -7,53 +7,44 @@ library(randomForest)
 
 # Read data
 wine <- read.csv(text = getURL("https://raw.githubusercontent.com/richardcsuwandi/datasets/master/wine.csv") )
-wine_reduced <- wine[,c("fixed.acidity", "volatile.acidity", "chlorides", "alcohol", "pH", "citric.acid", "residual.sugar", "quality")]
+wine_reduced <- wine[,c("alcohol", "pH", "citric.acid", "residual.sugar", "quality")]
 # Build model
 model <- randomForest(quality ~ ., data = wine_reduced, ntree = 500, mtry = 4, importance = TRUE)
 
 # User Interface (UI)               
 ui <- fluidPage(theme = shinytheme("united"),
-  navbarPage(
-    tabPanel('Good Wine?',
+  
+  # Page header
+  headerPanel('Good Wine?'),
+  
+  # Input values
+  sidebarPanel(
+    HTML("<h3>Input Parameters</h3>"),
     
-      # Input values
-      sidebarPanel(
-        HTML("<h3>Input Parameters</h3>"),
-        
-        sliderInput("fixed", "Alcohol:",
-                    min = 8.4, max = 14.9,
-                    value = 10.2),
-        sliderInput("pH", "pH:",
-                    min = 2.74, max = 4.01,
-                    value = 3.31),
-        sliderInput("citric.acid", "Citric Acid:",
-                    min = 0.0, max = 1.0,
-                    value = 0.25),
-        sliderInput("alcohol", "Alcohol:",
-                    min = 8.4, max = 14.9,
-                    value = 10.2),
-        sliderInput("pH", "pH:",
-                    min = 2.74, max = 4.01,
-                    value = 3.31),
-        sliderInput("citric.acid", "Citric Acid:",
-                    min = 0.0, max = 1.0,
-                    value = 0.25),
-        sliderInput("residual.sugar", "Residual Sugar:",
-                    min = 0.9, max = 15.4,
-                    value = 2.2),
-        
-        actionButton("submitbutton", "Submit", class = "btn btn-primary")
-      ),
-      
-      mainPanel(
-        tags$label(h3('Output')), # Output text Box
-        verbatimTextOutput('contents'),
-        tableOutput('tabledata') # Prediction results table
-        
-      )
-    )
+    sliderInput("alcohol", "Alcohol:",
+                min = 8.4, max = 14.9,
+                value = 10.2),
+    sliderInput("pH", "pH:",
+                min = 2.74, max = 4.01,
+                value = 3.31),
+    sliderInput("citric.acid", "Citric Acid:",
+                min = 0.0, max = 1.0,
+                value = 0.25),
+    sliderInput("residual.sugar", "Residual Sugar:",
+                min = 0.9, max = 15.4,
+                value = 2.2),
+    
+    actionButton("submitbutton", "Submit", class = "btn btn-primary")
+  ),
+  
+  mainPanel(
+    tags$label(h3('Output')), # Output text Box
+    verbatimTextOutput('contents'),
+    tableOutput('tabledata') # Prediction results table
+    
   )
 )
+
 
 # Server                           
 server <- function(input, output, session) {
