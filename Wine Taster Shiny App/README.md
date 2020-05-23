@@ -5,9 +5,9 @@ A shiny app that predicts the quality of a wine based on the input parameters. T
 - Alcohol: The percent of alcohol in the wine.
 - pH: Describes how acidic or basic a wine is on a scale from 0 (very acidic) to 14 (very basic).
 - Citric acid: Found in small quantities, citric acid can add 'freshness' and flavor to wines.
-- Residual Sugar: The amount of sugar remaining after fermentation stops, it's rare to find wines with less than 1 gram/liter and wines with greater than 45 grams/liter are considered sweet
+- Residual Sugar: The amount of sugar remaining after fermentation stops.
 
-In this app, I use a Random Forest Regressor to predict the quality of the wine.
+In this app, I use a Random Forest Regressor model to predict the quality of the wine.
 
 ## How to Use the App
 - Input the parameters in the input panel. You can change any or none of the parameters.
