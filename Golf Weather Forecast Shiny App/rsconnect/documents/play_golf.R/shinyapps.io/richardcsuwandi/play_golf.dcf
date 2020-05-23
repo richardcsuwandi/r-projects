@@ -1,0 +1,13 @@
+name: play_golf
+title: play_golf
+username:
+account: richardcsuwandi
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2342281
+bundleId: 3180848
+url: https://richardcsuwandi.shinyapps.io/play_golf/
+when: 1590207996.5544
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: input.csv|README.md
