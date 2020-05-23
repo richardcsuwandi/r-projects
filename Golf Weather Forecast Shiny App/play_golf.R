@@ -11,12 +11,12 @@ weather <- read.csv(text = getURL("https://raw.githubusercontent.com/richardcsuw
 # Build model
 model <- randomForest(play ~ ., data = weather, ntree = 500, mtry = 4, importance = TRUE)
 
-# User Interface (UI)               
+# User Interface (UI)
 ui <- fluidPage(theme = shinytheme("simplex"),
-  
+
   # Page header
   headerPanel('Play Golf?'),
-  
+
   # Input values
   sidebarPanel(
     HTML("<h3>Input Parameters</h3>"),
