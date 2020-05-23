@@ -1,0 +1,12 @@
+name: good_wine
+title: good_wine
+username:
+account: richardcsuwandi
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2345014
+bundleId: 3180962
+url: https://richardcsuwandi.shinyapps.io/good_wine/
+when: 1590212345.44142
+asMultiple: FALSE
+asStatic: FALSE
