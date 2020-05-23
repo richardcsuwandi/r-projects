@@ -6,8 +6,11 @@ library(RCurl)
 library(randomForest)
 
 # Read data
-wine <- read.csv(text = getURL("https://raw.githubusercontent.com/richardcsuwandi/datasets/master/wine.csv") )
+wine <- read.csv(text = getURL("https://raw.githubusercontent.com/richardcsuwandi/datasets/master/wine.csv"))
+
+# We are only going to use the 'alcohol', 'pH', 'citric.acid', 'residual.sugar', and 'quality' columns
 wine_reduced <- wine[,c("alcohol", "pH", "citric.acid", "residual.sugar", "quality")]
+
 # Build model
 model <- randomForest(quality ~ ., data = wine_reduced, ntree = 500, mtry = 4, importance = TRUE)
 
@@ -92,7 +95,6 @@ server <- function(input, output, session) {
   })
   
 }
-
 
 # Create the shiny app
 shinyApp(ui = ui, server = server)
