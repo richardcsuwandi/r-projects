@@ -109,8 +109,9 @@ nobel_winners %>%
        title  = "Nobel Prize Winners by Category Through the Decades")
 ```
 
-![](nobel_prize_files/figure-gfm/unnamed-chunk-4-1.png)<!-- --> A quick
-loot at the plot above, we can see that The ‘Economics’ category was not
+![](nobel_prize_files/figure-gfm/unnamed-chunk-4-1.png)<!-- --> 
+
+A quick look at the plot above, we can see that The ‘Economics’ category was not
 introduced until the 1960s, this is why the ‘Economics’ category has the
 least number of winners.
 
@@ -125,8 +126,9 @@ nobel_winners %>%
   expand_limits(y = 0)
 ```
 
-![](nobel_prize_files/figure-gfm/unnamed-chunk-5-1.png)<!-- --> From the
-plot above, we can observe that: - The ‘Literature’ category almost only
+![](nobel_prize_files/figure-gfm/unnamed-chunk-5-1.png)<!-- --> 
+
+From the plot above, we can observe that: - The ‘Literature’ category almost only
 has 1 winner per year. - The number of winners per year in ‘Medicine’,
 ‘Physics’, and ‘Chemistry’ tend to increase. - The ‘Economics’
 category seems to be introduced in the late 1960s.
@@ -140,8 +142,9 @@ nobel_winners %>%
   geom_col()
 ```
 
-![](nobel_prize_files/figure-gfm/unnamed-chunk-6-1.png)<!-- --> From the
-plot, it is clear that men have been dominating the Nobel Prize
+![](nobel_prize_files/figure-gfm/unnamed-chunk-6-1.png)<!-- --> 
+
+From the plot, it is clear that men have been dominating the Nobel Prize
 throughout the decades. It is also interesting to see that the number of
 women winners are increasing.
 
@@ -161,8 +164,9 @@ nobel_winners %>%
        title = "Nobel Prize Gender Distribution Through the Decades")
 ```
 
-![](nobel_prize_files/figure-gfm/unnamed-chunk-7-1.png)<!-- --> When we
-group our previous plot by category, we can clearly see that men are
+![](nobel_prize_files/figure-gfm/unnamed-chunk-7-1.png)<!-- --> 
+
+When we group our previous plot by category, we can clearly see that men are
 dominating the ‘Economics’ and ‘Physics’ categories. However, the
 proportion between men and women are more even in the ‘Literature’
 category. Also, the ‘Peace’ category is the only prize that has been
@@ -200,8 +204,9 @@ nobel_winners %>%
 
     ## Warning: Removed 30 rows containing non-finite values (stat_boxplot).
 
-![](nobel_prize_files/figure-gfm/unnamed-chunk-9-1.png)<!-- --> From the
-box plot above, we can observe that the ‘Physics’ category has the
+![](nobel_prize_files/figure-gfm/unnamed-chunk-9-1.png)<!-- --> 
+
+From the box plot above, we can observe that the ‘Physics’ category has the
 youngest Nobel laureates while ‘Literature’ and ‘Economics’ have the
 oldest.
 
@@ -217,6 +222,7 @@ nobel_winners %>%
 ```
 
 ![](nobel_prize_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+
 Interestingly, there seems to be a trend in the ‘Physics’ category where
 the Nobel laureates are getting older. Also, on average, the Nobel Prize
 in ‘Economics’ has been consistently given to people in their late 60s.
@@ -235,8 +241,9 @@ nobel_winners %>%
   coord_flip()
 ```
 
-![](nobel_prize_files/figure-gfm/unnamed-chunk-11-1.png)<!-- --> From
-the plots above, we can see that the Nobel Prize winners in ‘Literature’
+![](nobel_prize_files/figure-gfm/unnamed-chunk-11-1.png)<!-- --> 
+
+From the plots above, we can see that the Nobel Prize winners in ‘Literature’
 and ‘Peace’ are more likely to be spread across the world than the other
 categories. In contrast, the ‘Economics’ category seems to be highly
 dominated by people from the USA.
