@@ -1,0 +1,129 @@
+---
+title: "Data Analysis and Visualizations on Nobel Prize Winners Dataset"
+output: rmarkdown::github_document
+---
+This project is one of my R projects series. In this project, we have a Nobel Prize winners dataset from the weekly Tidy Tuesday event. The dataset contains 969 observations and covers metadata for all of the Nobel prize winners in physics, chemistry, and physiology or medicine from 1900 to 2016. A more detailed description of the dataset can be found [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-05-14)
+
+The goal of this project is to perform data anaylsis and visualizations on the Nobel Prize winners dataset to draw insights from the data.
+```{r}
+# Import the library
+library(tidyverse)
+library(lubridate)
+theme_set(theme_light())
+```
+
+```{r}
+# Import the data
+nobel_winners <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-05-14/nobel_winners.csv") %>%
+  distinct(full_name, prize_year, category, .keep_all = TRUE) %>%
+  mutate(decade = 10 * (prize_year %/% 10),
+         age = prize_year - year(birth_date))
+```
+
+```{r}
+# Create a count table for the category
+nobel_winners %>%
+  count(category, sort = TRUE)
+```
+
+As we can see from 6 Nobel Prize categories above, the 'Medicine' category has the highest number of winners. On the other hand, the 'Economy' category seems to has the least number of winners.
+```{r}
+# Create a plot for the number of winners by decade
+nobel_winners %>%
+  count(category, decade) %>%
+  ggplot(aes(decade, n, fill =  category)) +
+  geom_col() +
+  labs(x = "Decade",
+       y = "Number of Nobel Prize Winners",
+       fill = "Category",
+       title  = "Nobel Prize Winners by Category Through the Decades")
+```
+
+A quick loot at the plot above, we can see that The 'Economics' category was not introduced until the 1960s, this is why the 'Economics' category has the least number of winners.
+```{r}
+# Create a plot for winners per year and group them by category 
+nobel_winners %>%
+  group_by(category, decade) %>%
+  summarize(winners = n(),
+            winners_per_year = winners / n_distinct(prize_year)) %>%
+  ggplot(aes(decade, winners_per_year, color = category)) +
+  geom_line() +
+  expand_limits(y = 0)
+```
+
+From the plot above, we can observe that:
+- The 'Literature' category almost only has 1 winner per year.
+- The number of winners per year in 'Medicine', 'Physics', and 'Chemistry' tend to increase.
+- The 'Economics' category seems to be introduced in the late 1960s.
+```{r}
+# Create a plot of winners by gender
+nobel_winners %>%
+  count(decade, 
+        gender = coalesce(gender, laureate_type)) %>%
+  ggplot(aes(decade, n, fill = gender)) +
+  geom_col()
+```
+
+From the plot, it is clear that men have been dominating the Nobel Prize throughout the decades. It is also interesting to see that the number of women winners are increasing.
+```{r}
+# Create a plot of winners by gender through the decades
+nobel_winners %>%
+  count(decade,
+        category,
+        gender = coalesce(gender, laureate_type)) %>%
+  group_by(decade, category) %>%
+  ggplot(aes(decade, n, fill = gender)) +
+  geom_col() +
+  facet_wrap(~ category) +
+  labs(x = "Decade",
+       y = "Number of Nobel Prize Winners",
+       fill = "Gender",
+       title = "Nobel Prize Gender Distribution Through the Decades")
+```
+
+When we group our previous plot by category, we can clearly see that men are dominating the 'Economics' and 'Physics' categories. However, the proportion between men and women are more even in the 'Literature' category. Also, the 'Peace' category is the only prize that has been awarded to organizations instead of individuals. 
+```{r}
+# Filter for women laureates in Economics and Physics
+nobel_winners %>%
+  filter(category %in% c("Economics", "Physics"), gender == "Female")
+```
+
+Surprisingly, there were only 1 woman Nobel laureate in 'Economics' and 2 women Nobel laureates in Physics.  
+```{r}
+# Create a box plot for winners in category by age
+nobel_winners %>%
+  mutate(category = fct_reorder(category, age, median, na.rm = TRUE)) %>%
+  ggplot(aes(category, age)) +
+  geom_boxplot() +
+  coord_flip()
+```
+
+From the box plot above, we can observe that the 'Physics' category has the youngest Nobel laureates while 'Literature' and 'Economics' have the oldest.
+```{r}
+# Create a line plot for winners in by age through the decades
+nobel_winners %>%
+  filter(!is.na(age)) %>%
+  group_by(decade, category) %>%
+  summarize(average_age = mean(age),
+            median_age = median(age)) %>%
+  ggplot(aes(decade, average_age, color = category)) +
+  geom_line()
+```
+
+Interestingly, there seems to be a trend in the 'Physics' category where the Nobel laureates are getting older. Also, on average, the Nobel Prize in 'Economics' has been consistently given to people in their late 60s.
+```{r}
+# Create a plot for winners by birth country
+nobel_winners %>%
+  filter(!is.na(birth_country)) %>%
+  count(birth_country = fct_lump(birth_country, 9),
+        category,
+        sort = TRUE) %>%
+  mutate(birth_country = fct_reorder(birth_country, n)) %>%
+  ggplot(aes(birth_country, n, fill = category)) +
+  geom_col() +
+  facet_wrap(~ category) +
+  coord_flip()
+```
+
+From the plots above, we can see that the Nobel Prize winners in 'Literature' and 'Peace' are more likely to be spread across the world than the other categories. In contrast, the 'Economics' category seems to be highly dominated by people from the USA.
+
