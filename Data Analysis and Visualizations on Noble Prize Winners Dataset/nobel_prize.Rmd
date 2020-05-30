@@ -6,7 +6,7 @@ This project is one of my R projects series. In this project, we have a Nobel Pr
 
 The goal of this project is to perform data anaylsis and visualizations on the Nobel Prize winners dataset to draw insights from the data.
 ```{r}
-# Import the library
+# Import the libraries
 library(tidyverse)
 library(lubridate)
 theme_set(theme_light())
