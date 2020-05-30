@@ -6,7 +6,7 @@ observations with 11 variables. A more detailed description of the
 dataset can be found
 [here](https://www.rdocumentation.org/packages/mlbench/versions/2.1-1/topics/BreastCancer)
 
-The goal of this project is to create Naive Bayes Classifier model to
+The goal of this project is to create a Naive Bayes Classifier model to
 predict whether a cancer is malignant or benign from biopsy details. The source code of this project can also be found [here](https://github.com/richardcsuwandi/r-projects/blob/master/Naive%20Bayes%20Classifier%20on%20Wisconsin%20Breast%20Cancer%20Dataset/breast_cancer.R) 
 
 ``` r
@@ -59,6 +59,7 @@ We can obtain a more detailed summary of the dataset using the summary()
 function.
 
 ``` r
+# View the summary of the data
 summary(BreastCancer)
 ```
 
@@ -127,7 +128,7 @@ summary(BreastCancer)
     ##  5      : 39   8      : 21   5      : 34   6      : 22     7      :  9  
     ##  (Other): 66   (Other): 42   (Other): 69   (Other): 69     (Other): 17
 
-### Splitting the Data
+## Splitting the Data
 
 Next, we are going to split our data into training and test sets, in a
 70:30 ratio.
