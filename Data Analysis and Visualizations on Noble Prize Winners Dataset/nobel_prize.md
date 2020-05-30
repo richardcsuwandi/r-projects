@@ -128,10 +128,9 @@ nobel_winners %>%
 
 ![](nobel_prize_files/figure-gfm/unnamed-chunk-5-1.png)<!-- --> 
 
-From the plot above, we can observe that: - The ‘Literature’ category almost only
-has 1 winner per year. - The number of winners per year in ‘Medicine’,
-‘Physics’, and ‘Chemistry’ tend to increase. - The ‘Economics’
-category seems to be introduced in the late 1960s.
+From the plot above, we can observe that: 
+- The ‘Literature’ category almost only has 1 winner per year. 
+- The number of winners per year in ‘Medicine’, ‘Physics’, and ‘Chemistry’ tend to increase. - The ‘Economics’ category seems to be introduced in the late 1960s.
 
 ``` r
 # Create a plot of winners by gender
