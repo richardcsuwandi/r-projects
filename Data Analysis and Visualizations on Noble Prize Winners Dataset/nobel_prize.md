@@ -109,8 +109,8 @@ nobel_winners %>%
        title  = "Nobel Prize Winners by Category Through the Decades")
 ```
 
-![](nobel_prize_files/figure-gfm/unnamed-chunk-4-1.png)<!-- --> A quick
-loot at the plot above, we can see that The ‘Economics’ category was not
+![](nobel_prize_files/figure-gfm/unnamed-chunk-4-1.png)<!-- --> 
+A quick look at the plot above, we can see that The ‘Economics’ category was not
 introduced until the 1960s, this is why the ‘Economics’ category has the
 least number of winners.
 
