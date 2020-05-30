@@ -13,7 +13,7 @@ The goal of this project is to perform data anaylsis and visualizations
 on the Nobel Prize winners dataset to draw insights from the data.
 
 ``` r
-# Import the library
+# Import the libraries
 library(tidyverse)
 ```
 
@@ -130,7 +130,8 @@ nobel_winners %>%
 
 From the plot above, we can observe that: 
 - The ‘Literature’ category almost only has 1 winner per year. 
-- The number of winners per year in ‘Medicine’, ‘Physics’, and ‘Chemistry’ tend to increase. - The ‘Economics’ category seems to be introduced in the late 1960s.
+- The number of winners per year in ‘Medicine’, ‘Physics’, and ‘Chemistry’ tend to increase. 
+- The ‘Economics’ category seems to be introduced in the late 1960s.
 
 ``` r
 # Create a plot of winners by gender
