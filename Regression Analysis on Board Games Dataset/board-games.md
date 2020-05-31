@@ -536,9 +536,9 @@ cv_lasso
     ## 
     ## Measure: Mean-Squared Error 
     ## 
-    ##       Lambda Measure      SE Nonzero
-    ## min 0.003391  0.4315 0.01142     270
-    ## 1se 0.011367  0.4420 0.01163     170
+    ##      Lambda Measure      SE Nonzero
+    ## min 0.00309  0.4304 0.01015     274
+    ## 1se 0.01036  0.4396 0.01085     179
 
 Let’s visualize this to see how the MSE changes when the lambda values
 are changing.
@@ -560,7 +560,7 @@ the “one-standard-error” rule to select the best model.
 cv_lasso$lambda.1se
 ```
 
-    ## [1] 0.01136666
+    ## [1] 0.01035688
 
 Now, let’s fit that lambda value to our model.
 
@@ -571,20 +571,20 @@ cv_lasso$glmnet.fit %>%
   arrange(desc(estimate))
 ```
 
-    ## # A tibble: 171 x 5
+    ## # A tibble: 180 x 5
     ##    term                           step estimate lambda dev.ratio
     ##    <chr>                         <dbl>    <dbl>  <dbl>     <dbl>
-    ##  1 (Intercept)                      34    6.12  0.0114     0.410
-    ##  2 family_Tableau Building          34    0.508 0.0114     0.410
-    ##  3 mechanic_Deck / Pool Building    34    0.489 0.0114     0.410
-    ##  4 designer_Urs Hostettler          34    0.487 0.0114     0.410
-    ##  5 family_18xx                      34    0.487 0.0114     0.410
-    ##  6 mechanic_Worker Placement        34    0.420 0.0114     0.410
-    ##  7 designer_Dean Essig              34    0.418 0.0114     0.410
-    ##  8 artist_Chechu Nieto              34    0.371 0.0114     0.410
-    ##  9 category_Miniatures              34    0.362 0.0114     0.410
-    ## 10 artist_Rick Barber               34    0.353 0.0114     0.410
-    ## # ... with 161 more rows
+    ##  1 (Intercept)                      35    6.11  0.0104     0.415
+    ##  2 designer_Urs Hostettler          35    0.519 0.0104     0.415
+    ##  3 family_Tableau Building          35    0.513 0.0104     0.415
+    ##  4 mechanic_Deck / Pool Building    35    0.493 0.0104     0.415
+    ##  5 family_18xx                      35    0.489 0.0104     0.415
+    ##  6 mechanic_Worker Placement        35    0.423 0.0104     0.415
+    ##  7 designer_Dean Essig              35    0.422 0.0104     0.415
+    ##  8 artist_Chechu Nieto              35    0.385 0.0104     0.415
+    ##  9 category_Miniatures              35    0.368 0.0104     0.415
+    ## 10 family_Crowdfunding: Verkami     35    0.364 0.0104     0.415
+    ## # ... with 170 more rows
 
 From the results above, again, we can see how different features affect
 our target with different coefficients. For instance, the ‘Urs
@@ -641,7 +641,7 @@ cv_lasso$glmnet.fit %>%
   ggplot(aes(term, estimate)) +
   geom_col() +
   coord_flip() +
-  labs(title = "Largest Coefficients in Predicting Average Ratings of Board Games",
+  labs(title = "Largest Coefficients",
        subtitle = "Based on the Lasso Regression Model",
        x = "",
        y = "Coefficient")

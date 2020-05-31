@@ -322,7 +322,7 @@ cv_lasso$glmnet.fit %>%
   ggplot(aes(term, estimate)) +
   geom_col() +
   coord_flip() +
-  labs(title = "Largest Coefficients in Predicting Average Ratings of Board Games",
+  labs(title = "Largest Coefficients",
        subtitle = "Based on the Lasso Regression Model",
        x = "",
        y = "Coefficient")
