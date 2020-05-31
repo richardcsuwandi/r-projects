@@ -9,7 +9,7 @@ contains 10,532 board games with at least 50 ratings between 1950 and
 
 The goal of this project is to perform a regression analysis on the
 board games dataset and build a model to predict the average ratings of
-the games.
+the games. The source code of this project can also be found [here](https://github.com/richardcsuwandi/r-projects/blob/master/Regression%20Analysis%20on%20Board%20Games%20Dataset/board-games.Rmd)
 
 ``` r
 # Import the libraries
